@@ -34,7 +34,7 @@ nav#bottom ul li {
     -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
     justify-content: center;
-    flex: 150px;
+    flex: 0 1 150px;
 }
 
 /* ===============================
@@ -94,10 +94,17 @@ nav#bottom ul li {
         width: 100%;
     }
 
-    a.links p {
+    article#links p {
         -webkit-flex-flow: row nowrap;
         flex-flow: row nowrap;
         justify-content: space-around;
+    }
+
+    article#links a {
+        background-color: rgb(220, 27, 27);
+        border-radius: 20px;
+        padding: 10px;
+        text-decoration: none;
     }
 }
 
@@ -105,3 +112,29 @@ nav#bottom ul li {
 	Tablet and Desktop Devices: 481px or more 
    ============================================
 */
+@media only screen and (min-width: 481px) {
+    body {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    body>article {
+        flex: 2 1 400px;
+    }
+
+    body>aside {
+        flex: 2 1 200px;
+    }
+
+    nav ul {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        background-color: rgb(51, 51, 51);
+        justify-content: center;
+        align-items: center;
+    }
+}
