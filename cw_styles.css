@@ -28,79 +28,100 @@
 */
 
 /* The nav with an ID of bottom and unordered list renders a flexbox and the items are centered along the main axis. The width never exceeds 150 so that it is able to shrink. */
-nav#bottom ul li {
+nav#bottom {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
     justify-content: center;
-    flex: 0 1 150px;
+
+}
+
+/* nav with the ID of bottom never exceeds 150px and has a flexbox. */
+nav#bottom ul {
+    max-width: 150px;
+    -webkit-flex: 1;
+    flex: 1;
 }
 
 /* ===============================
 	Mobile Styles up to 480 pixels
    ===============================
 */
-@media only screen and (max-width:490px) {
+/* Styles applied to screens below 480px */
+@media only screen and (max-width:480px) {
+
+    /* The body has a set rgb color to the text and background. */
     body {
         color: rgb(211, 211, 211);
         background-color: rgb(51, 51, 51);
     }
 
+    /* the aside element, the image within the article and the section with the ID of spotlight is hidden. */
     aside,
-    img,
-    article,
+    article img,
     section#spotlight {
         display: none;
     }
 
+    /* The unordered list within the nav with an ID of top has a set flexbox that wraps. */
+    nav#top ul {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    /* The list that is within the unordered list nested in the nav that has an ID of top has a font size and also a flexbox. */
     nav#top ul li {
         font-size: 2.2em;
+        -webkit-flex: 1 1 130px;
         flex: 1 1 130px;
     }
 
-    ul li:nth-of-type(1) {
+    /* The nav with an ID of top has a pseudo-element to list all six backgrounds that has no tiling and 100% width */
+    nav#top ul li:nth-of-type(1) {
         background: url(cw_image01.png) no-repeat;
         width: 100%;
     }
 
-    ul li:nth-of-type(2) {
+    nav#top ul li:nth-of-type(2) {
         background: url(cw_image02.png) no-repeat;
         width: 100%;
     }
 
-    ul li:nth-of-type(3) {
+    nav#top ul li:nth-of-type(3) {
         background: url(cw_image03.png) no-repeat;
         width: 100%;
     }
 
-    ul li:nth-of-type(4) {
+    nav#top ul li:nth-of-type(4) {
         background: url(cw_image04.png) no-repeat;
         width: 100%;
     }
 
-    ul li:nth-of-type(5) {
+    nav#top ul li:nth-of-type(5) {
         background: url(cw_image05.png) no-repeat;
         width: 100%;
     }
 
-    ul li:nth-of-type(6) {
+    nav#top ul li:nth-of-type(6) {
         background: url(cw_image06.png) no-repeat;
         width: 100%;
     }
 
-    ul li:nth-of-type(7) {
-        background: url(cw_image07.png) no-repeat;
-        width: 100%;
-    }
-
-    article#links p {
+    /* The paragraoh element with an ID of links has a flexbox and does not wrap. Also, distributes items evenly throughout the main axis.*/
+    p#links {
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
         -webkit-flex-flow: row nowrap;
         flex-flow: row nowrap;
         justify-content: space-around;
     }
 
-    article#links a {
+    /* The hyperlink within the paragraph with an ID of links has a text color and background color. The radius is 20px, it has a 10px padding and there is no underlining. */
+    p#links a {
+        color: white;
         background-color: rgb(220, 27, 27);
         border-radius: 20px;
         padding: 10px;
@@ -112,7 +133,10 @@ nav#bottom ul li {
 	Tablet and Desktop Devices: 481px or more 
    ============================================
 */
+/* All styles are applied to screens about 481px. */
 @media only screen and (min-width: 481px) {
+
+    /* the body has a flexbox and wraps. */
     body {
         display: -webkit-flex;
         display: flex;
@@ -120,21 +144,39 @@ nav#bottom ul li {
         flex-flow: row wrap;
     }
 
+    /* The article that is a child of the body has a grow and shrink rate of 2 to 1 and a basis of 400px*/
     body>article {
+        -webkit-flex: 2 1 400px;
         flex: 2 1 400px;
     }
 
+    /* The aside that is a child of the body has a grow and shrink rate of 1 to 2 and a basis of 200px */
     body>aside {
-        flex: 2 1 200px;
+        -webkit-flex: 1 2 200px;
+        flex: 1 2 200px;
     }
 
-    nav ul {
+    /* The unordered list nested within the nav that has an ID of top has a flexbox that had a horizontal direction and has no wrapping. Also, the height of the nav is set to 50px with a background color of rgb. The items on the main axis are centered and the single line of the cross axis is centered. */
+    nav#top ul {
         display: -webkit-flex;
         display: flex;
+        flex-direction: row;
         -webkit-flex-flow: row nowrap;
         flex-flow: row nowrap;
         background-color: rgb(51, 51, 51);
+        height: 50px;
         justify-content: center;
         align-items: center;
+    }
+
+    /* The list within an unordered list nested in the nav with an ID of top grows and shrinks at a rate of 0 to 1 and a basis of 80px. */
+    nav#top ul li {
+        -webkit-flex: 0 1 80px;
+        flex: 0 1 80px;
+    }
+
+    /* The paragraphs with an ID of links are not displayed. */
+    p#links {
+        display: none;
     }
 }
